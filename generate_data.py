@@ -1,7 +1,8 @@
 import random
+import re
 import string
 from faker import Faker
-from datetime import datetime, timedelta
+
 
 # метод регистрации нового курьера возвращает список из логина и пароля
 # если регистрация не удалась, возвращает пустой список
@@ -32,7 +33,7 @@ def generate_order():
     
     first_name = faker.first_name()
     last_name = faker.last_name()
-    address = faker.address()[:30]
+    address = re.sub(r'[^а-яА-ЯёЁa-zA-Z0-9., ]', '',faker.address()[:30])
     station = random.randint(1, 237)
     phone = f"+{random.randint(00000000000, 99999999999)}"
     date = faker.date_between(start_date='+1d', end_date='+15d').isoformat()
