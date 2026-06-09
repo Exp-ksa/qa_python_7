@@ -1,7 +1,7 @@
 import pytest
 import allure
 from api_methods.api_orders import Order
-import data
+from data import DataOrder
 import generate_data
 
 @allure.epic('Тестирование сервиса аренды самокатов')
@@ -11,10 +11,10 @@ class TestCreateOrder:
     @allure.story('Создание заказа с разными цветами')
     @allure.title('Создание заказа с параметрами: {payload}')
     @pytest.mark.parametrize('payload', [
-                                        data.order[0], 
-                                        data.order[1], 
-                                        data.order[2], 
-                                        data.order[3]
+                                        DataOrder.order[0], 
+                                        DataOrder.order[1], 
+                                        DataOrder.order[2], 
+                                        DataOrder.order[3]
                                         ])
     def test_create_order(self, payload):
         response = Order.create_order(payload)
