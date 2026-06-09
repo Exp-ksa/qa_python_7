@@ -47,9 +47,8 @@ def setup_data(random_payload):
     order_response = Order.create_order(order_payload)
     
     track = order_response.json()["track"]
-    
     track_response = Order.get_order(track)
-    print(track_response.text)
+    
     order_id = track_response.json()["order"]["id"]
         
     yield {
