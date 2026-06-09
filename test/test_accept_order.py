@@ -7,7 +7,7 @@ from api_methods.api_orders import Order
 class TestAcceptOrder:
     
     @allure.story('Успешное принятие заказа')
-    @allure.title('Успешный запрос возвращает {"ok":true}')
+    @allure.title('Успешный запрос возвращает {{"ok": true}}')
     def test_accept_order_success_returns_ok_true(self, setup_data):
         data = setup_data
         order_id = data['order_id']

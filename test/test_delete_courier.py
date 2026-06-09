@@ -8,7 +8,7 @@ from api_methods.api_courier import Courier
 class TestDeleteCourier:
     
     @allure.story('Успешное удаление курьера')
-    @allure.title('Успешный запрос возвращает {"ok":true}')
+    @allure.title('Успешный запрос возвращает {{"ok": true}}')
     @allure.severity(allure.severity_level.CRITICAL)
     def test_delete_courier_successful_returns_ok_true(self, login_courier):
         delete_response = Courier.delete_courier(login_courier)
