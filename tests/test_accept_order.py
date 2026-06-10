@@ -1,4 +1,5 @@
 import allure
+import generate_data
 
 from api_methods.api_orders import Order
 
@@ -33,7 +34,7 @@ class TestAcceptOrder:
     def test_accept_order_invalid_courier_id_returns_error(self, setup_data):
         data = setup_data
         order_id = data['order_id']
-        courier_id = '99999999'
+        courier_id = generate_data.generate_fake_id_courier()
         response = Order.accept_order(order_id, courier_id)
         
         assert response.status_code == 404
@@ -53,7 +54,7 @@ class TestAcceptOrder:
     @allure.title('Если передать неверный id заказа, запрос вернёт ошибку')
     def test_accept_order_invalid_order_id_returns_error(self, setup_data):
         data = setup_data
-        order_id = '999999999'
+        order_id = generate_data.generate_fake_id_order()
         courier_id = data['courier_id']
         response = Order.accept_order(order_id, courier_id)
         

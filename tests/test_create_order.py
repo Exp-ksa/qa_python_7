@@ -11,10 +11,10 @@ class TestCreateOrder:
     @allure.story('Создание заказа с разными цветами')
     @allure.title('Создание заказа с параметрами: {payload}')
     @pytest.mark.parametrize('payload', [
-                                        DataOrder.order[0], 
-                                        DataOrder.order[1], 
-                                        DataOrder.order[2], 
-                                        DataOrder.order[3]
+                                        DataOrder.black_grey, 
+                                        DataOrder.black, 
+                                        DataOrder.grey, 
+                                        DataOrder.no_color
                                         ])
     def test_create_order(self, payload):
         response = Order.create_order(payload)

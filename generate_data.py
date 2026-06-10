@@ -27,6 +27,14 @@ def generate_courier_random():
  
     return payload
 
+def generate_fake_id_courier():
+    courier_id = random.randint(100000000, 999999999)
+    return courier_id
+
+def generate_fake_id_order():
+    order_id = random.randint(100000000, 999999999)
+    return order_id
+
 faker = Faker('ru_RU')
 
 def generate_order():

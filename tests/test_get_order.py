@@ -7,7 +7,7 @@ from api_methods.api_orders import Order
 @allure.feature('Получение заказа по номеру')
 class TestGetOrder:
 
-    allure.story('Успешное получение заказа')
+    @allure.story('Успешное получение заказа')
     @allure.title('Успешный запрос возвращает объект с заказом')
     def test_get_order_success_returns_order_object(self):
         order_payload = generate_data.generate_order()
@@ -34,7 +34,7 @@ class TestGetOrder:
     @allure.story('Ошибки при получении заказа')
     @allure.title('Запрос с несуществующим заказом возвращает ошибку')
     def test_get_order_nonexistent_id_returns_error(self):
-        response = Order.get_order(999999999)
+        response = Order.get_order(generate_data.generate_fake_id_order())
     
         assert response.status_code == 404
         assert response.json()["message"] == "Заказ не найден"
