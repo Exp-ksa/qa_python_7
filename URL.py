@@ -1,4 +1,4 @@
-class URL:
+class Url:
     BASE_URL = "https://qa-scooter.praktikum-services.ru"
     LOGIN_COURIER_ENDPOINT = f"{BASE_URL}/api/v1/courier/login"
     CREATE_COURIER_ENDPOINT = f"{BASE_URL}/api/v1/courier"
